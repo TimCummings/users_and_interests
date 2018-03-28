@@ -1,19 +1,10 @@
-<!doctype html>
-<html>
-<head>
-  <title>Users and Interests</title>
-</head>
+<h2><%= @title %></h2>
 
-<body>
-  <h2>Users and Interests</h2>
-
-  <ul>
-    <% @users.each do |user| %>
-      <% name = user.first %>
-      <li><a href='/user?name=<%= name %>'>
-        <%= name.capitalize %>
-      </a></li>
-    <% end %>
-  </ul>
-</body>
-</html>
+<ul>
+  <% @users.each do |user| %>
+    <% name = user.first %>
+    <li><a href='/user?name=<%= name %>'>
+      <%= name.capitalize %>
+    </a></li>
+  <% end %>
+</ul>

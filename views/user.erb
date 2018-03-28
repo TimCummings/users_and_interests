@@ -1,18 +1,8 @@
-<!doctype html>
-<html>
-<head>
-  <title>User <%= @name.capitalize %></title>
-</head>
-
-<body>
   <h2>User: <%= @name.capitalize %></h2>
   <h4>Email: <%= @users[@name][:email] %></h4>
   <h4>Interests: <%= @users[@name][:interests].join(', ') %></h4>
-</body>
 
-<footer>
   <h4>Other Users:</h4>
-
   <ul>
     <% @users.each do |user| %>
       <% next if user.first == @name %>
@@ -22,5 +12,3 @@
       </a></li>
     <% end %>
   </ul>
-</footer>
-</html>

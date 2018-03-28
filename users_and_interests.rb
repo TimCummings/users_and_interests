@@ -10,6 +10,7 @@ before do
 end
 
 get '/' do
+  @title = 'Users and Interests'
   erb :home
 end
 
@@ -17,6 +18,6 @@ get '/user' do
   @name = params[:name].downcase.to_sym
   redirect '/' if !@name || @name.empty?
   redirect '/' unless @users.key? @name
-
+  @title = "User #{@name.capitalize}"
   erb :user
 end
