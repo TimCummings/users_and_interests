@@ -5,6 +5,18 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'yaml'
 
+helpers do
+  def count_users
+    @users.size
+  end
+
+  def count_interests
+    @users.reduce(0) do |sum, (_, info)|
+      sum += info[:interests].size
+    end
+  end
+end
+
 before do
   @users = YAML.load_file('users.yaml')
 end
