@@ -1,8 +1,8 @@
+<!-- views/home.erb -->
 <h2><%= @title %></h2>
 
 <ul>
-  <% @users.each do |user| %>
-    <% name = user.first %>
+  <% @users.each do |name, _| %>
     <li><a href='/user?name=<%= name %>'>
       <%= name.capitalize %>
     </a></li>

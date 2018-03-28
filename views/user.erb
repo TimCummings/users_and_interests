@@ -1,14 +1,18 @@
-  <h2>User: <%= @name.capitalize %></h2>
-  <h4>Email: <%= @users[@name][:email] %></h4>
-  <h4>Interests: <%= @users[@name][:interests].join(', ') %></h4>
+<!-- views/user.erb -->
+<h2>User: <%= @name.capitalize %></h2>
 
-  <h4>Other Users:</h4>
-  <ul>
-    <% @users.each do |user| %>
-      <% next if user.first == @name %>
-      <% name = user.first %>
-      <li><a href='/user?name=<%= name %>'>
-        <%= name.capitalize %>
-      </a></li>
-    <% end %>
-  </ul>
+<h4>Email:</h4>
+<p><%= @users[@name][:email] %></p>
+
+<h4>Interests:</h4>
+<p><%= @users[@name][:interests].join(', ') %></p>
+
+<h4>Other Users:</h4>
+<ul>
+  <% @users.each do |name, _| %>
+    <% next if name == @name %>
+    <li><a href='/user?name=<%= name %>'>
+      <%= name.capitalize %>
+    </a></li>
+  <% end %>
+</ul>
