@@ -5,8 +5,12 @@
 </head>
 
 <body>
+  <h2>Users and Interests</h2>
+
   <ul>
-    <%= @users.each %>
+    <% @users.each do |user| %>
+      <li><%= user.first.capitalize %></li>
+    <% end %>
   </ul>
 </body>
 </html>
