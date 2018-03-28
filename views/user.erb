@@ -8,6 +8,19 @@
   <h2>User: <%= @name.capitalize %></h2>
   <h4>Email: <%= @users[@name][:email] %></h4>
   <h4>Interests: <%= @users[@name][:interests].join(', ') %></h4>
-
 </body>
+
+<footer>
+  <h4>Other Users:</h4>
+
+  <ul>
+    <% @users.each do |user| %>
+      <% next if user.first == @name %>
+      <% name = user.first %>
+      <li><a href='/user?name=<%= name %>'>
+        <%= name.capitalize %>
+      </a></li>
+    <% end %>
+  </ul>
+</footer>
 </html>
